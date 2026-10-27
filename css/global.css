@@ -1,0 +1,214 @@
+html{
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: "Forum", serif;
+}
+
+.main-color{
+    color: var(--main-color);
+}
+
+.widOfImg{
+    max-width: 100px;
+}
+
+
+.loadingPage {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e1c593;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .8s ease, visibility 0s;
+}
+.loadingPage.hide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .8s ease, visibility 0s .8s;
+}
+
+.loadingPage .loader-ring {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #fff;
+    border-top-color: #222;
+    border-right-color: #222;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+
+.loadingPage .Delici {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+}
+.loadingPage .Delici p {
+    margin: 0;
+    text-align: center;
+    letter-spacing: 6px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+
+.loadingPage .Delici p.outer span {
+    color: transparent;
+    -webkit-text-stroke: 1.5px #222;
+}
+
+.loadingPage .Delici p.inner {
+    position: absolute;
+    inset: 0;
+}
+.loadingPage .Delici p.inner span {
+    color: #222;
+    opacity: 0;
+    animation: fillLetter 3s ease-in-out infinite;
+}
+.loadingPage .Delici p.inner span:nth-child(1) { 
+    animation-delay: 0s; 
+}
+.loadingPage .Delici p.inner span:nth-child(2) { 
+    animation-delay: .2s; 
+}
+.loadingPage .Delici p.inner span:nth-child(3) { 
+    animation-delay: .4s; 
+}
+.loadingPage .Delici p.inner span:nth-child(4) { 
+    animation-delay: .6s; 
+}
+.loadingPage .Delici p.inner span:nth-child(5) { 
+    animation-delay: .8s; 
+}
+.loadingPage .Delici p.inner span:nth-child(6) { 
+    animation-delay: 1s; 
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 30px 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+    background-color: rgba(227, 197, 144,.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .4s ease, visibility 0s .4s;
+}
+.popup.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .4s ease, visibility 0s;
+}
+
+.popup > .container {
+    margin: auto;
+}
+.popup > .container > .box {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    background-color: #1a1a1a;
+    border: 1px solid var(--main-color);
+    color: #828282;
+    transform: translateY(-40px);
+    transition: transform .4s ease;
+}
+.popup.show > .container > .box {
+    transform: translateY(0);
+}
+.popup .box:not(:last-child) {
+    margin-bottom: 40px;
+    row-gap: 40px;
+}
+
+
+.popup form input,
+.popup form input:focus,
+.popup form textarea,
+.popup form textarea:focus {
+    background-color: transparent;
+    color: #969696;
+    border: 1px solid #fff;
+    outline: none;
+}
+.popup .form-control::placeholder {
+    color: #bdbdbd;
+    opacity: 1;
+}
+.popup form textarea {
+    resize: none;
+}
+.popup .input-error {
+    border-color: var(--bs-danger);
+}
+.popup .alert-msg {
+    font-size: 13px;
+}
+
+.popup .close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    cursor: pointer;
+}
+
+.popup button {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding: 6px 12px;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    background-color: transparent;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    border-radius: 5px;
+}
+.popup button span.text {
+    position: relative;
+    z-index: 1;
+    transition: color .5s;
+}
+.popup button::before,
+.popup button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: var(--main-color);
+    transition: transform .5s;
+}
+.popup button::before { top: 0;    transform: translateY(-100%); }
+.popup button::after  { bottom: 0; transform: translateY(100%); }
+
+.popup button:hover::before,
+.popup button:hover::after {
+    transform: translateY(0);
+}
+.popup button:hover span.text {
+    color: #000;
+}

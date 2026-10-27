@@ -1,0 +1,102 @@
+@keyframes burger-1 {
+    0%{
+        transform: scaleX(.8); 
+    }
+    50%      { 
+        transform: scaleX(.4); 
+    }
+    100% {
+        transform: scaleX(.8); 
+    }
+}
+@keyframes burger-2 {
+    0% { 
+        transform: scaleX(.5); 
+    }
+    50%{ 
+        transform: scaleX(1); 
+    }
+    100% { 
+        transform: scaleX(.5); 
+    }
+}
+@keyframes burger-3 {
+    0% { 
+        transform: scaleX(1); 
+    }
+    50%{ 
+        transform: scaleX(.55); 
+    }
+    100% { 
+        transform: scaleX(1); 
+    }
+}
+
+
+@keyframes indicator {
+    0%{ 
+        width: 14px; 
+    }
+    10%{ 
+        width: 100px; 
+    }
+    100% { 
+        width: 14px; 
+    }
+}
+
+@keyframes scale{
+    to { 
+        transform: scaleX(1); 
+    }
+}
+
+
+
+@keyframes spin {
+    to { 
+        transform: rotate(360deg); 
+    }
+}
+
+
+@keyframes upDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+     100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes smooth {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fillLetter {
+    0%, 10%{ 
+        opacity: 0; 
+    }
+    35%, 70% {
+         opacity: 1; 
+        }
+    100%{
+         opacity: 0; 
+        }
+}
+
+@keyframes badgeSpin {
+    to { 
+        transform: translate(-50%, -50%) rotate(360deg); 
+    }
+}

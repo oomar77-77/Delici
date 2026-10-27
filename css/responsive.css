@@ -1,0 +1,456 @@
+/* 350 */
+@media (max-width: 1300px) {
+.navbar .logo img{
+    max-width: 120px
+}
+
+.popup[data-popup-name="sidebar"] > .box {
+    width: 250px;
+}
+#Home #SC-Carousel .sc-carousel-inner .sc-carousel-item .container .content h1{
+    font-size: 30px;
+}
+#Home #SC-Carousel .sc-carousel-inner .sc-carousel-item .container .content p{
+    font-size: 12px;
+}
+#SC-Carousel .buttons{
+    display: none;
+}
+#SC-Carousel .indicators {
+    right: 20px;
+    bottom: 20px;
+}
+.bookingTable{
+    left: 20px;
+    bottom: 20px;
+}
+
+
+#About_Us {
+    position: relative;
+    overflow: hidden;
+}
+
+#About_Us .backImg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+#About_Us .container {
+    position: relative;
+    z-index: 1;
+}
+#About_Us .container .text {
+    width: 85%;
+    margin-bottom: 60px;
+}
+
+#About_Us .box{
+    transform: translateY(0);
+}
+
+
+#Our_Story .part2 {
+    padding: 30px 0 0;
+}
+#Our_Story .part2 .item {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+}
+
+#Our_Story .part2 .backImg {
+    max-width: 280px;
+    margin: auto;
+}
+
+#Our_Story .part2 .backImg img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+#Our_Story .part2 .chefImg {
+    left: 5%;
+    top: 48%;
+    width: 55%;
+}
+#Our_Story .part2 .badgeBox {
+    top: 12%;
+    right: 4%;
+}
+
+#Special_Dish .part1 {
+    min-height: 0;
+    height: 260px;
+    background-position: center;
+}
+#Special_Dish .part2 {
+    padding: 40px 6%;
+    align-self: auto;
+}
+#Special_Dish .part2 .title {
+    text-align: left;
+}
+.main-button {
+    font-size: 14px;
+}
+
+
+#Menu .meal .frame {
+    width: 70px;
+    height: 70px;
+    border-radius: 16px;
+}
+
+#Menu .meal {
+    position: relative;
+}
+
+#Menu .meal .description {
+    position: relative;
+    cursor: pointer;
+}
+
+#Menu .meal .description::after {
+    content: "Tap the + for the full details";
+    position: absolute;
+    left: 0;
+    bottom: 105%;
+    background-color: var(--main-color);
+    color: #000;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+    transition: all 0.3s ease;
+    z-index: 99;
+}
+
+#Menu .meal .frame:hover ~ .col-8 .description::after,
+#Menu .meal .frame:hover ~ div .description::after,
+#Menu .meal:has(.frame:hover) .description::after,
+#Menu .meal .description:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-5px);
+}
+
+#Menu .meal .frame {
+    position: relative;
+    overflow: hidden;
+}
+
+#Menu .meal .layout i {
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+#Menu .meal .frame .layout {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#Menu .meal .frame:hover .layout {
+    opacity: 1;
+}
+
+#Menu .meal .frame:hover .layout i {
+    transform: rotate(180deg);
+}
+
+#Menu .meal .frame:hover .meal-img {
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
+}
+.meal-popup { 
+    padding: 20px 10px; 
+}
+.meal-popup-box { 
+    padding: 30px 18px 30px; 
+}
+.meal-popup-close { 
+    top: 16px; 
+    right: 16px; 
+    font-size: 22px; 
+}
+.meal-popup-price { 
+    top: 16px; 
+    padding: 6px 16px; 
+    font-size: 20px; 
+}
+.meal-popup-arrow { 
+    width: 36px; 
+    height: 36px; 
+}
+.meal-popup-arrow i { 
+    font-size: 15px; 
+}
+.meal-popup-arrow.prev { 
+    left: 16px; 
+}
+.meal-popup-arrow.next { 
+    right: 16px; 
+}
+.meal-popup-desc { 
+    font-size: 16px; 
+}
+.menu-categories{
+    overflow-x: auto;
+}
+.menu-categories ul {
+  width: max-content;
+  min-width: 100%;
+}
+.menu-content .menu-meals .row [class*="part"] .item .meal .frame {
+    width: 90px;
+    height: 90px;
+  }
+
+
+
+  #Menu .meal .row.mx-0 {
+    flex-wrap: nowrap;
+}
+
+#Menu .meal .col-4 {
+    flex: 0 0 auto;
+    width: 25%;
+}
+
+#Menu .meal .col-8 {
+    flex: 0 0 auto;
+    width: 75%;
+}
+ #Contact_Us .container .wrapper-form {
+    max-width: 280px;
+  }
+}
+/* 450 */
+@media (min-width: 371px) and (max-width: 1300px) {
+#Home #SC-Carousel .sc-carousel-inner .sc-carousel-item .container .content h1{
+    font-size: 40px;
+}
+#Home #SC-Carousel .sc-carousel-inner .sc-carousel-item .container .content p{
+    font-size: 14px;
+}
+.popup .container > .box {
+    max-width: 350px;
+}
+.popup[data-popup-name="sidebar"]  > .box {
+    width: 300px;
+}
+#Our_Story .part2 .backImg {
+    max-width: 350px;
+    margin: auto;
+}
+.menu-content .menu-meals .row [class*="part"] .item .meal .frame {
+    width: 120px;
+    height: 120px;
+  }
+  #Our_Chefs .container .content .row .chef {
+    display: flex;
+    justify-content: center;
+}
+
+#Our_Chefs .container .content .row .chef .item {
+    width: 100%;
+    max-width: 100%;
+}
+
+#Our_Chefs .container .content .row .chef .item .photo {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+}
+
+#Our_Chefs .container .content .row .chef .item .photo img,
+#Our_Chefs .container .content .row .chef .item .photo .chef-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+#Our_Chefs .container .content .row .chef .item .photo:hover img,
+#Our_Chefs .container .content .row .chef .item .photo:hover .chef-img {
+    transform: scale(1.1) rotate(5deg);
+}
+ #Contact_Us .container .wrapper-form {
+    max-width: 350px;
+  }
+}
+/* 650 */
+@media (min-width: 577px) and (max-width: 1300px) {
+#Home #SC-Carousel .sc-carousel-inner .sc-carousel-item .container .content h1{
+    font-size: 50px;
+}
+#Home #SC-Carousel .sc-carousel-inner .sc-carousel-item .container .content p{
+    font-size: 16px;
+}
+#Home #SC-Carousel .sc-carousel-inner .sc-carousel-item .container .content .button a.btn{
+    font-size: 16px;
+}
+.popup .container > .box{
+    max-width: 450px;
+    margin: 30px auto;
+    padding: 30px;
+}
+.popup[data-popup-name="sidebar"] > .box {
+    width: 400px;
+  }
+#Menu .container .content .menu-content .menu-meals > .row{
+    width: 450px;
+    margin: auto;
+}
+#Our_Chefs .container .content .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Our_Chefs .container .content .row .chef {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+#Our_Chefs .container .content .row .chef .item {
+    width: 100%;
+}
+
+#Our_Chefs .container .content .row .chef .item .photo {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+}
+
+#Our_Chefs .container .content .row .chef .item .photo img,
+#Our_Chefs .container .content .row .chef .item .photo .chef-img,
+#Our_Chefs .container .content .row .chef .item .photo [style*="background-image"] {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+#Our_Chefs .container .content .row .chef .item .photo:hover img,
+#Our_Chefs .container .content .row .chef .item .photo:hover .chef-img {
+    transform: scale(1.1) rotate(5deg);
+}
+ #Contact_Us .container .wrapper-form {
+    max-width: 450px;
+  }
+}
+/* 850 */
+@media (min-width: 769px) and (max-width: 1300px) {
+#Home #SC-Carousel .sc-carousel-inner .sc-carousel-item .container .content h1{
+    font-size: 70px;
+}
+#Home #SC-Carousel .sc-carousel-inner .sc-carousel-item .container .content p{
+    font-size: 18px;
+}
+#Home #SC-Carousel .sc-carousel-inner .sc-carousel-item .container .content .button a.btn{
+    font-size: 18px;
+}
+.popup .container > .box{
+    max-width: 600px;
+}
+
+#Our_Story .part2 {
+    padding-right: 0; 
+    padding-top: 8%; 
+}
+#Our_Story .part2 .item { 
+    margin-bottom: 20%; }
+#Our_Story .part2 .chefImg { 
+    left: -4%; 
+}
+#Our_Story .part2 .badgeBox { 
+    right: -3%; 
+}
+#Special_Dish .row1 {
+    align-items: stretch;
+}
+
+#Special_Dish .part1 {
+    height: auto;
+    min-height: 420px;
+    background: url("../images/special-dish.jpg") center / cover no-repeat;
+}
+
+#Special_Dish .part2 {
+    display: flex;
+    align-items: center;
+}
+#Menu .container .content .menu-content .menu-meals > .row {
+    width: 550px;
+    margin: auto;
+
+}
+#Our_Chefs .container .content .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+#Our_Chefs .container .content .row .chef {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    width: 100%;
+}
+ #Contact_Us .container .wrapper-form {
+    max-width: 500px;
+  }
+
+}
+/* 1050 */
+@media (min-width: 992px) and (max-width: 1300px) {
+#SC-Carousel .buttons{
+    display: initial;
+}
+#SC-Carousel .indicators {
+    right: 40px;
+    bottom: 40px;
+}
+.bookingTable{
+    left: 40px;
+    bottom: 40px;
+}
+
+#About_Us .container .text {
+    width: 40%;
+    margin-bottom: 0px;
+}
+#About_Us .box:nth-of-type(1){
+    transform: translateY(-50px);
+}
+#About_Us .box:nth-of-type(2){
+    transform: translateY(50px);
+}
+#About_Us .box:nth-of-type(3){
+    transform: translateY(-50px);
+}
+#Menu .container .content .menu-content .menu-meals > .row {
+    width: initial;
+    margin: initial;
+
+
+}
+}
+/* 1250 */
+@media (min-width: 1181px) and (max-width: 1300px) {
+
+
+}
