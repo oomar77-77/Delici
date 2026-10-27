@@ -1106,6 +1106,36 @@ button.next {
     cursor: help;
     color: #7A7A7A;
 }
+.meal-popup .buttons button{
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    transition-duration: .5s;
+    position: absolute;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: translateY(-50%) rotate(45deg);  
+    z-index: 5;
+}
+.meal-popup.buttons button i {
+    font-size: 22px;
+    transform: rotate(-45deg);
+}
+.meal-popup.prev {
+    left: 40px; 
+}
+.meal-popup.next {
+    right: 40px;
+}
+.meal-popup .buttons button:hover{
+    background-color: var(--main-color);
+    color:#000;
+}
 
 .custom-tooltip {
     --bs-tooltip-bg: var(--main-color);
