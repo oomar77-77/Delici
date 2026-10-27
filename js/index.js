@@ -108,7 +108,11 @@ sideLinks.forEach(link => {
     link.addEventListener("click", () => setActive(link));
 });
 
-
+document
+  .querySelector('[data-popup-name="bookingTable"] .box')
+  .addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
 
 
 let loadingpageEle = document.querySelector(".loadingPage");
