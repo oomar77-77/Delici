@@ -161,6 +161,7 @@
 }
 #Home #SC-Carousel .sc-carousel-inner .sc-carousel-item .container .content{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-self: center;
 }
