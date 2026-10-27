@@ -345,39 +345,36 @@ if (defaultCategory) {
     const IMG_PATH = "./images/";
 
     const popup = document.createElement("div");
-
     popup.className = "meal-popup";
 
     popup.innerHTML = `
         <div class="meal-popup-box">
-            <button class="meal-popup-close" aria-label="Close">
+            <button type="button" class="meal-popup-close" aria-label="Close">
                 <i class="fa-regular fa-circle-xmark"></i>
             </button>
 
             <div class="title text-center">
                 <h6 class="main-color">SPECIAL SELECTION</h6>
-
-                <img
-                    src="./images/separator.svg"
-                    class="img-fluid widOfImg"
-                    alt="Separator"
-                >
-
+                <img src="./images/separator.svg"
+                     class="img-fluid widOfImg" alt="Separator">
                 <h2 class="display-5 text-light meal-popup-name"></h2>
             </div>
 
             <div class="meal-popup-gallery">
                 <img class="meal-popup-img" alt="">
-
                 <div class="meal-popup-price"></div>
 
-                <button class="meal-popup-arrow prev" aria-label="Previous">
-                    <i class="fa-solid fa-angle-left"></i>
-                </button>
+                <div class="buttons">
+                    <button type="button" class="meal-popup-arrow prev"
+                            aria-label="Previous meal">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </button>
 
-                <button class="meal-popup-arrow next" aria-label="Next">
-                    <i class="fa-solid fa-angle-right"></i>
-                </button>
+                    <button type="button" class="meal-popup-arrow next"
+                            aria-label="Next meal">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </button>
+                </div>
             </div>
 
             <p class="meal-popup-desc"></p>
@@ -386,82 +383,58 @@ if (defaultCategory) {
 
     document.body.appendChild(popup);
 
-    let box = popup.querySelector(".meal-popup-box");
-    let nameEl = popup.querySelector(".meal-popup-name");
-    let imgEl = popup.querySelector(".meal-popup-img");
-    let priceEl = popup.querySelector(".meal-popup-price");
-    let descEl = popup.querySelector(".meal-popup-desc");
-    let prevBtn = popup.querySelector(".meal-popup-arrow.prev");
-    let nextBtn = popup.querySelector(".meal-popup-arrow.next");
-    let closeBtn = popup.querySelector(".meal-popup-close");
+    let get = selector => popup.querySelector(selector);
 
-    let currentImages = [];
-    let currentIndex = 0;
+    let mealIndex = 0;
 
-    function showImage(index, animate) {
-        if (currentImages.length === 0) {
-            imgEl.removeAttribute("src");
-            return;
-        }
-
-        currentIndex =
-            (index + currentImages.length) % currentImages.length;
-
-        let src = IMG_PATH + currentImages[currentIndex];
-
-        if (!animate) {
-            imgEl.src = src;
-            return;
-        }
-
-        imgEl.style.opacity = "0";
-
-        setTimeout(function () {
-            imgEl.src = src;
-            imgEl.style.opacity = "1";
-        }, 250);
-    }
-
-    prevBtn.addEventListener("click", function () {
-        showImage(currentIndex - 1, true);
-    });
-
-    nextBtn.addEventListener("click", function () {
-        showImage(currentIndex + 1, true);
-    });
-
-    window.showPopupMeal = function (id) {
-        let meal = allMenu.find(function (item) {
-            return item.id === Number(id);
-        });
-
+    function showMeal(meal) {
         if (!meal) return;
 
-        nameEl.textContent = meal.name || "";
+        get(".meal-popup-name").textContent = meal.name || "";
+        get(".meal-popup-price").textContent =
+            "$" + (Number(meal.price) || 0).toFixed(2);
+        get(".meal-popup-desc").textContent =
+            meal.description || meal.miniDescription || "";
 
-        priceEl.textContent = "$" + Number(meal.price).toFixed(2);
+        let images = Array.isArray(meal.images) ? meal.images : [];
 
-        // عرض الـ description الكامل وليس miniDescription
-        descEl.textContent = meal.description || "";
-
-        currentImages = Array.isArray(meal.images)
-            ? meal.images
-            : [];
-
-        imgEl.style.opacity = "1";
-
-        showImage(0, false);
-
-        let multiple = currentImages.length > 1;
-
-        prevBtn.style.display = multiple ? "" : "none";
-        nextBtn.style.display = multiple ? "" : "none";
-
-        popup.scrollTop = 0;
-        box.scrollTop = 0;
+        if (images.length > 0) {
+            get(".meal-popup-img").src = IMG_PATH + images[0];
+            get(".meal-popup-img").alt = meal.name || "";
+        } else {
+            get(".meal-popup-img").removeAttribute("src");
+        }
 
         popup.classList.add("show");
         document.body.style.overflow = "hidden";
+    }
+
+    window.showPopupMeal = function (id) {
+        mealIndex = allMenu.findIndex(
+            item => Number(item.id) === Number(id)
+        );
+
+        if (mealIndex === -1) return;
+
+        showMeal(allMenu[mealIndex]);
+    };
+
+    function changeMeal(step) {
+        if (!allMenu || allMenu.length === 0) return;
+
+        mealIndex = (mealIndex + step + allMenu.length) % allMenu.length;
+
+        showMeal(allMenu[mealIndex]);
+    }
+
+    get(".meal-popup-arrow.prev").onclick = function (event) {
+        event.stopPropagation();
+        changeMeal(-1);
+    };
+
+    get(".meal-popup-arrow.next").onclick = function (event) {
+        event.stopPropagation();
+        changeMeal(1);
     };
 
     window.closePopupMeal = function () {
@@ -469,39 +442,13 @@ if (defaultCategory) {
         document.body.style.overflow = "";
     };
 
-    closeBtn.addEventListener("click", function () {
-        window.closePopupMeal();
-    });
+    get(".meal-popup-close").onclick = window.closePopupMeal;
 
-    popup.addEventListener("click", function (event) {
-        if (!box.contains(event.target)) {
+    popup.onclick = function (event) {
+        if (event.target === popup) {
             window.closePopupMeal();
         }
-    });
-
-    document.addEventListener("keydown", function (event) {
-        if (
-            event.key === "Escape" &&
-            popup.classList.contains("show")
-        ) {
-            window.closePopupMeal();
-        }
-
-        if (
-            !popup.classList.contains("show") ||
-            currentImages.length < 2
-        ) {
-            return;
-        }
-
-        if (event.key === "ArrowLeft") {
-            showImage(currentIndex - 1, true);
-        }
-
-        if (event.key === "ArrowRight") {
-            showImage(currentIndex + 1, true);
-        }
-    });
+    };
 
     document.addEventListener("click", function (event) {
         let layout = event.target.closest("#Menu .meal .layout");
