@@ -1337,7 +1337,11 @@ button.next {
 #Our_Chefs .chef {
     position: relative;
 }
-
+#Our_Chefs .container .content {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
 #Our_Chefs .container .content .row .chef .item .photo {
     position: relative;
     overflow: hidden;
