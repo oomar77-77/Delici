@@ -158,8 +158,6 @@
 }
 #Home #SC-Carousel .sc-carousel-item .container {
     padding-top: 90px;     
-}
-#Home #SC-Carousel .sc-carousel-inner .sc-carousel-item .container .content{
     display: flex;
     flex-direction: column;
     align-items: center;
