@@ -159,6 +159,11 @@
 #Home #SC-Carousel .sc-carousel-item .container {
     padding-top: 90px;     
 }
+#Home #SC-Carousel .sc-carousel-inner .sc-carousel-item .container .content{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
 #Home #SC-Carousel .sc-carousel-inner .sc-carousel-item .container .content h1,
 #Home #SC-Carousel .sc-carousel-inner .sc-carousel-item .container .content p{
     color: #fff;
